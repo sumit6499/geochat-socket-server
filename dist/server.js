@@ -23,6 +23,7 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
         const socketService = new socket_service_1.default();
         const server = (0, http_1.createServer)(app);
         socketService.io.attach(server);
+        socketService.socketListners();
         server.listen(PORT, () => {
             console.log("server running");
         });
@@ -32,4 +33,5 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
         (0, process_1.exit)(1);
     }
 });
-//# sourceMappingURL=index.js.map
+init();
+//# sourceMappingURL=server.js.map
