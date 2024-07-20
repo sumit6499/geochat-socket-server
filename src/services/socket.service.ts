@@ -1,5 +1,5 @@
 import {Server,Socket} from 'socket.io'
-
+import {listenMessage} from '../controllers/socketEvent.controller'
 
 interface Message{
     message:string,
@@ -24,19 +24,10 @@ class SocketService{
 
     public socketListners(){
         const io=this._io
-
         console.log("socket listeners intialized")
-
         io.on('connect',(socket)=>{
-            console.log("new socket connected "+socket.id)
-
-            socket.on('recieve-location',({location}:{location:string})=>{
-                console.log("location recieved "+location)
-            })
-
-            socket.on('recieve-message',(data:Message)=>{
-
-            })
+            console.log("new socket connected"+socket.id)
+            socket.on('event:message',listenMessage)
         })
     }
 

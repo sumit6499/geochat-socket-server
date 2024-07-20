@@ -27,6 +27,7 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
         server.listen(PORT, () => {
             console.log("server running");
         });
+        return server;
     }
     catch (error) {
         console.log(error);

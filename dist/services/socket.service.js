@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const socket_io_1 = require("socket.io");
+const socketEvent_controller_1 = require("../controllers/socketEvent.controller");
 class SocketService {
     constructor() {
         console.log("socket server intialized");
@@ -15,12 +16,8 @@ class SocketService {
         const io = this._io;
         console.log("socket listeners intialized");
         io.on('connect', (socket) => {
-            console.log("new socket connected " + socket.id);
-            socket.on('recieve-location', ({ location }) => {
-                console.log("location recieved " + location);
-            });
-            socket.on('recieve-message', (data) => {
-            });
+            console.log("new socket connected" + socket.id);
+            socket.on('event:message', socketEvent_controller_1.listenMessage);
         });
     }
     get io() {

@@ -14,10 +14,12 @@ const init= async ()=>{
         socketService.io.attach(server)
 
         socketService.socketListners()
-        
+
         server.listen(PORT,()=>{
             console.log("server running")
         })
+
+        return server
     } catch (error) {
         console.log(error)
         exit(1)
@@ -25,3 +27,5 @@ const init= async ()=>{
 }
 
 init()
+
+

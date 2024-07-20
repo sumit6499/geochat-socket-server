@@ -13,8 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "5.13.0",
     "express": "^4.19.2",
     "ioredis": "^5.4.1",
+    "prisma": "^5.16.2",
     "socket.io": "^4.7.5"
   },
   "devDependencies": {
