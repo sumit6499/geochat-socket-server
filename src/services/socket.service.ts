@@ -27,7 +27,14 @@ class SocketService{
         console.log("socket listeners intialized")
         io.on('connect',(socket)=>{
             console.log("new socket connected"+socket.id)
-            socket.on('event:message',listenMessage)
+            socket.on('event:message',(message:string,callback:Function)=>{
+                    console.log(message)
+                    io.emit('event:recieve',message)
+                }
+            )
+            socket.on('event:location',(location:Object)=>{
+                console.log(location)
+            })
         })
     }
 
